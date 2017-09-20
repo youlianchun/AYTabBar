@@ -55,6 +55,12 @@
         self.didInit = YES;
         [self resetStyle];
         self.delegate = (id<AYTabBarDelegate>) self;
+        if ([UIScreen mainScreen].bounds.size.height == 812) {
+            CGRect frame = self.frame;
+            frame.size.height = 83;
+            super.frame = frame;
+            [self addConstraint: [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:83]];
+        }
     }
 }
 
